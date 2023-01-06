@@ -6,7 +6,7 @@ KAFKA_TOPIC = 'input_data'
 
 consumer = KafkaConsumer(
   KAFKA_TOPIC,
-  bootstrap_servers="localhost:9092"
+  bootstrap_servers="127.0.0.1:9092"
 )
 
 
@@ -38,4 +38,4 @@ while True:
     "op": "add",
     "result": result
     }
-    print(f"{ex_id} => {ex_rh} {ex_op} {ex_lh} = {result}")
+    print(f"{ex_id} : {ex_rh} {ex_op} {ex_lh} = {result}")

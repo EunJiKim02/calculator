@@ -7,7 +7,7 @@ from kafka import KafkaProducer
 KAFKA_TOPIC = "input_data"
 ORDER_LIMIT = 15
 
-producer = KafkaProducer(bootstrap_servers="localhost:9092")
+producer = KafkaProducer(bootstrap_servers='localhost:9092')
 
 for i in range(1, ORDER_LIMIT):
   data = {
