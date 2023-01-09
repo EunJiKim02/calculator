@@ -25,11 +25,11 @@ while True:
     if(ex_op == "add"):
       result = ex_rh + ex_lh
     elif(ex_op == "sub"):
-      result = ex_rh - ex_lh
+      result = ex_lh - ex_rh
     elif(ex_op == "mul"):
       result = ex_rh * ex_lh
     else:
-      result = ex_rh / ex_lh
+      result = ex_lh / ex_rh
 
     data = {
     "id": ex_id,
@@ -38,4 +38,4 @@ while True:
     "op": "add",
     "result": result
     }
-    print(f"{ex_id} : {ex_rh} {ex_op} {ex_lh} = {result}")
+    print(f"{ex_id} >> {ex_lh} {ex_op} {ex_rh} = {result}")

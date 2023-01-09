@@ -1,10 +1,26 @@
-version: '3'
+version: '3.1'
 services:
+  db:
+    image: postgres
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: 'admin'
+      POSTGRES_PASSWORD: 'mobuk'
+      POSTGRES_DB: Calculator
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+
   zookeeper:
     image: wurstmeister/zookeeper
     container_name: zookeeper
     ports:
-      - "2181:2181"
+      - 2181:2181
 
   kafka:
     image: wurstmeister/kafka
@@ -13,23 +29,4 @@ services:
     environment:
       KAFKA_ADVERTISED_HOST_NAME : localhost
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-
-  database:
-    image: postgres
-    ports:
-      - "5432:5432"
-    restart: always
-
-    environment:
-      POSTGRES_USER: admin
-      POSTGRES_PASSWORD: mobuk
-      POSTGRES_DB: Calculator
-  
-  adminer:
-    image: adminer
-    restart: always
-    depends_on:
-      - database
-    ports:
-      - "8080:8080"
 
