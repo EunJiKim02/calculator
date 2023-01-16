@@ -2,15 +2,18 @@ import json
 
 from kafka import KafkaConsumer
 import psycopg2
+import time 
 
 KAFKA_TOPIC = 'input_data'
 
+time.sleep(10)
+
 consumer = KafkaConsumer(
   KAFKA_TOPIC,
-  bootstrap_servers="127.0.0.1:9092"
+  bootstrap_servers="host.docker.internal:9092"
 )
 
-hostname = 'localhost'
+hostname = 'host.docker.internal'
 database = 'Calculator'
 username = 'admin'
 pwd = 'mobuk'
@@ -60,7 +63,7 @@ try:
       result = ex_rh * ex_lh
     else:
       result = ex_lh / ex_rh
-
+      
     data = {
     "id": ex_id,
     "rh": ex_rh,

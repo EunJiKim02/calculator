@@ -4,6 +4,9 @@ import random as r
 
 from kafka import KafkaProducer
 
+
+time.sleep(100)
+
 KAFKA_TOPIC = "input_data"
 ORDER_LIMIT = 15
 
