@@ -5,19 +5,17 @@ import random as r
 from kafka import KafkaProducer
 
 
-time.sleep(100)
-
 KAFKA_TOPIC = "input_data"
 ORDER_LIMIT = 15
 
 
 
-producer = KafkaProducer(bootstrap_servers='localhost:9092')
+producer = KafkaProducer(bootstrap_servers='host.docker.internal:9092')
 i = 0
 while(True):
-  lh, rh = map(int, input("lh, rh 순서대로 입력 (0 0은 종료) >>> ").split())
+  lh, rh = map(int, input("input lh, rh >>> ").split())
 
-  op = input("연산 (add sub mul div) >> ")
+  op = input("choose (add sub mul div) >> ")
   data = {
     "id": i,
     "rh": rh,

@@ -9,7 +9,7 @@ ORDER_LIMIT = 15
 
 n = int(input("time setting >> "))
 
-producer = KafkaProducer(bootstrap_servers='localhost:9092')
+producer = KafkaProducer(bootstrap_servers='host.docker.internal:9092')
 i = 0
 while(True):
   lh = r.randint(1, 100)
@@ -26,7 +26,7 @@ while(True):
     op = 'div'
 
   data = {
-    "id": n,
+    "id": i,
     "rh": rh,
     "lh": lh,
     "op": op,
